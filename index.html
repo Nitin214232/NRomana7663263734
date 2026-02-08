@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romana ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+    color:white;
+    background:url('background.jpg') no-repeat center center/cover;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(rgba(255,0,90,0.5),rgba(150,0,80,0.6));
+    z-index:-1;
+}
+
+.name3d{
+    font-size:60px;
+    margin-top:40px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff4da6,
+        0 0 40px #ff1a75,
+        0 0 80px #ff0066;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+.love-msg{
+    font-size:21px;
+    max-width:750px;
+    margin:15px auto 25px;
+    line-height:1.7;
+}
+
+.typewriter{
+    font-size:24px;
+    margin-top:10px;
+    border-right:3px solid white;
+    display:inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    margin:40px 20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:210px;
+    height:270px;
+    perspective:1000px;
+}
+
+.card.center{
+    width:250px;
+    height:320px;
+}
+
+.card-inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:transform 0.8s;
+}
+
+.card:hover .card-inner{
+    transform:rotateY(180deg);
+}
+
+.card-front,.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.card-front img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-back{
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(8px);
+    transform:rotateY(180deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    font-size:16px;
+}
+
+button{
+    padding:14px 28px;
+    margin:20px;
+    border:none;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    background:white;
+    color:#d6005c;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#d6005c;
+    color:white;
+}
+
+.popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(6px);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.popup-box{
+    position:relative;
+    background:linear-gradient(135deg,#ff6a88,#ff99ac);
+    padding:35px;
+    width:90%;
+    max-width:480px;
+    border-radius:25px;
+    color:white;
+    transform:perspective(1000px) rotateX(15deg) scale(0.8);
+    animation:popupAnim 0.6s forwards;
+    box-shadow:0 25px 50px rgba(0,0,0,0.5);
+}
+
+@keyframes popupAnim{
+    to{
+        transform:perspective(1000px) rotateX(0deg) scale(1);
+    }
+}
+
+.close-btn{
+    position:absolute;
+    right:15px;
+    top:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+@media(max-width:768px){
+    .name3d{font-size:42px;}
+    .gallery{flex-direction:column;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="name3d">ROMANA ❤️</div>
+
+<div class="love-msg">
+Romana, you brought light into my life in ways I never imagined.
+Your presence feels like peace,
+your smile feels like home,
+and loving you feels like destiny. ❤️✨
+</div>
+
+<div class="typewriter" id="typeText"></div>
+
+<div class="gallery">
+
+<div class="card">
+<div class="card-inner">
+<div class="card-front">
+<img src="photo1.jpeg">
+</div>
+<div class="card-back">
+Your smile is my favorite happiness ❤️
+</div>
+</div>
+</div>
+
+<div class="card center">
+<div class="card-inner">
+<div class="card-front">
+<img src="photo2.jpeg">
+</div>
+<div class="card-back">
+With you, life feels beautiful and complete 💕
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-inner">
+<div class="card-front">
+<img src="photo3.jpeg">
+</div>
+<div class="card-back">
+You are my forever and always 💖
+</div>
+</div>
+</div>
+
+</div>
+
+<button onclick="showPromise()">Click My Love Promise 💌</button>
+
+<div class="popup" id="promisePopup">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePromise()">❌</span>
+    <h2>My Promise To You ❤️</h2>
+    <p>
+      Romana, I promise to stand beside you
+      in every happiness and every storm.
+      I promise to respect you, cherish you,
+      and love you with honesty and loyalty.
+      I choose you today, tomorrow, and forever. ❤️
+    </p>
+  </div>
+</div>
+
+<audio id="bgMusic" preload="auto">
+    <source src="./music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const text = "Dear Romana, you are my heart and my forever...";
+    let i = 0;
+
+    function typing(){
+        if(i < text.length){
+            document.getElementById("typeText").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 90);
+        }
+    }
+    typing();
+});
+
+function showPromise(){
+    document.getElementById("promisePopup").style.display = "flex";
+
+    const music = document.getElementById("bgMusic");
+
+    // Reset music before playing
+    music.currentTime = 0;
+
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise
+            .then(() => {
+                console.log("Music started successfully");
+            })
+            .catch(error => {
+                console.log("Playback failed:", error);
+                alert("Tap anywhere once, then click the button again.");
+            });
+    }
+}
+
+
+function closePromise(){
+    document.getElementById("promisePopup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
